@@ -1,0 +1,31 @@
+%table.table.table-bordered
+  %thead
+    %tr
+      %th.large-small 商品資訊
+      %th 淘寶網站
+      %th 樣式名稱
+      %th 樣式狀態
+      %th 現貨數量
+      %th 運送中數量
+      %th 建議庫存量
+      %th 操作
+  %tbody
+    - items.each do |item|
+      %tr
+        = render "stock_information", item: item
+        %td{rowspan: item.specs.count + 1}
+          = link_to "連結", item.url, target: "_blank"
+        - item.specs.each do |item_spec|
+          %tr
+            %td
+              = link_to item_spec.style, "#", rel: "popover", data: { "image-url": "#{item_spec.style_pic_url}", "placement": "left" }, class: "btn btn-default preview"
+            %td{:id => "status-#{item_spec.id}"}
+              = link_to_update_item_spec_status(item_spec)
+            %td
+              = item_spec.stock_item_quantity
+            %td
+              = item_spec.shipping_item_quantity
+            %td
+              = item_spec.requested_quantity
+            %td
+              = link_to "編輯", edit_admin_stock_path(item), class: "btn btn-default"

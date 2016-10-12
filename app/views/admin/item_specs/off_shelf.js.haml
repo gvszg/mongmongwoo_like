@@ -1,0 +1,17 @@
+$("#status-#{@item_spec.id}").html('#{link_to_update_item_spec_status(@item_spec)}')
+- if (@set_item_off_shelf)
+  $("#status-#{@item_spec.item.id}").html('#{link_to_update_item_status(@item)}') 
+  :plain
+    $(function(){
+      new PNotify({
+        title: '已將此樣式下架',
+        text: '因為該商品已無上架樣式，所以將商品下架，不然手機端會當機'
+      });
+    });
+- else
+  :plain
+    $(function(){
+      new PNotify({
+        title: '已將此樣式下架'
+      });
+    });

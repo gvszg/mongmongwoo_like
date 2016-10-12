@@ -1,0 +1,24 @@
+%table#example.table.table-bordered
+  %thead
+    %tr
+      %th 訊息編號
+      %th 訊息標題
+      %th 訊息圖片
+      %th 執行推播日期
+      %th 執行工作類型
+      %th 操作選項
+  %tbody
+    - @notifications.each do |notification|
+      %tr
+        %td
+          = link_to notification.id, admin_notification_path(notification)
+        %td
+          = link_to notification.content_title, admin_notification_path(notification)
+        %td
+          = image_tag(notification.send_content_pic, size: "100x100")
+        %td
+          = display_date_and_time(notification.execute_time.in_time_zone)
+        %td
+          = t(notification.schedule_type)
+        %td
+          = link_to "刪除", admin_notification_path(notification), method: :delete

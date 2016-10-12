@@ -1,0 +1,18 @@
+.content-box-large
+  .breadcrumb-topbar
+    %ol.breadcrumb
+      %li
+        = link_to "萌萌屋", admin_root_path
+      %li.active 推播訊息列表
+  .pull-right
+    = link_to "新增訊息", new_admin_notification_path, { class: "btn btn-default" }
+  %h2 推播訊息列表
+  .category-all-items
+    .panel-body
+      %ul.nav.nav-tabs
+        = li_execute_status_link(is_execute: Schedule.execute_statuses[:false])
+        = li_execute_status_link(is_execute: Schedule.execute_statuses[:true])
+      %br
+      = render_pagination(@notifications)
+      %br
+      = render "notification_table"

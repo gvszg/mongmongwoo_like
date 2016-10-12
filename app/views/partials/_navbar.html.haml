@@ -1,0 +1,82 @@
+%nav.navbar.navbar-default.nav-bar
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button#nav-drop.navbar-toggle.collapsed{"aria-expanded": "false", "data-target": "#nav-bar-collapse", "data-toggle": "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.nav-drop-icon
+      %a.navbar-brand.logo-block{:href => root_path}
+        = image_tag('icons/logo.png', class: 'logo')
+        .name
+          萌萌屋
+      .notify-block.visible-xs-inline-block
+        = link_to my_messages_path do
+          .list.notify
+      .search-bars.visible-xs-inline-block
+        = form_tag search_items_path, method: :get do
+          =text_field_tag :query, params[:query], placeholder: "請輸入關鍵字", class: "search"
+          %button.search-btn
+            %span.glyphicon.glyphicon-search.search-icon{:type => "submit"}
+    - if current_user.nil?
+      = render 'partials/sessions/login'
+      = render 'partials/sessions/register'
+      = render 'partials/sessions/forget'
+      = render 'partials/sessions/sent_success'
+    #nav-bar-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li.nav-list.hidden-xs
+          .search-bars
+            = form_tag search_items_path, method: :get do
+              =text_field_tag :query, params[:query], placeholder: "請輸入關鍵字", class: "search"
+              %button.search-btn
+                %span.glyphicon.glyphicon-search.search-icon{:type => "submit"}
+        %li.nav-list.visible-xs-block
+          .dropdown
+            .list.diamond.dropdown-toggle
+              商品分類
+              %span.caret
+            %ul.dropdown-menu.parent-categories
+              - @categories.each do |category|
+                %li.list
+                  .dropdown
+                    .list.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                      = category.name
+                      %span.caret
+                    %ul.dropdown-menu.sub-categories
+                      = link_to category_path(category) do
+                        %li.list 全部
+                      - category.child_categories.each do |child_category|
+                        - if child_category.items.exists?
+                          = link_to category_path(child_category) do
+                            %li.list= child_category.name
+        %li.nav-list.hidden-xs
+          = link_to my_messages_path do
+            .list.notify
+              我的通知
+        %li.nav-list
+          = link_to checkout_path do
+            .list.cart
+              購物車
+              = render_counter
+        %li.nav-list#user-nav
+          .dropdown#user
+            .list.user.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+              我的帳戶
+              %span.caret
+            %ul.dropdown-menu
+              - if current_user.nil?
+                %li.list
+                  = link_to "登入/註冊", "#", {"aria-label": "Close", "data-toggle": "modal", "data-target": "#login-page", class: "link"}
+              %li.list
+                = link_to "我的訂單", orders_path, class: 'link'
+              %li.list
+                = link_to "我的收藏", favorite_items_path, class: 'link'
+              %li.list
+                = link_to "補貨清單", wish_lists_path, class: 'link'
+              %li.list
+                = link_to "我的購物金", shopping_points_path, class: 'link'
+              - if current_user
+                %li.list
+                  = link_to "登出", signout_path, class: 'link'
+    - if android?
+      = render 'partials/app_install_banner'

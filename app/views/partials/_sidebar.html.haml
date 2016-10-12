@@ -1,0 +1,46 @@
+.aside
+  .side-bar
+    .header
+      商品清單
+    - @categories.each do |category|
+      .dropdown.keep-open
+        .list.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+          = category.name
+          %span.caret
+        %ul.dropdown-menu
+          = link_to category_path(category) do
+            %li.list 全部
+          - category.child_categories.each do |child_category|
+            - if child_category.items.exists?
+              = link_to category_path(child_category) do
+                %li.list= child_category.name
+  .side-bar
+    .header
+      熱門商品
+    - @pop_items.each do |item|
+      = link_to category_item_path(@category_all, item), property: "url" do
+        .pop-list{vocab: "http://schema.org/", typeof: "Product"}
+          .image
+            = render_special_price_icon(item)
+            = image_tag(item.cover.icon.url, property: "image")
+          .group
+            .list
+              %span{property: "name"}= item.name
+            = side_item_current_price(item)
+  .app-banner
+    .logo
+      = image_tag('brand.png')
+    .text
+      萌萌屋
+    .text
+      走在青年流行前線
+    .text
+      您所需要的東西都在這裡！
+      %br/
+      快下載萌萌屋，搶購最新商品吧！
+    .image
+      = link_to "https://play.google.com/store/apps/details?id=com.kosbrother.mongmongwoo&hl=zh_TW" do
+        = image_tag('android.png')
+  = render 'partials/facebook'
+  .line-banner
+    = image_tag('line.png')

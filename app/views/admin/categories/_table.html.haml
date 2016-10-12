@@ -1,0 +1,17 @@
+%table.table.table-bordered
+  %thead
+    %tr
+      %th.small 編號
+      %th.large-small 名稱
+      %th.large-small 圖片
+      %th.small 操作
+  %tbody
+    - categories.each do |category|
+      %tr
+        %td= category.id
+        %td= category.name
+        %td= show_image(category.image, "90x90")
+        %td
+          =link_to '子分類',  admin_category_path(category), class: 'btn btn-default'
+          =link_to '編輯', edit_admin_category_path(category), class: 'btn btn-default'
+          =link_to '刪除', admin_category_path(category), class: 'btn btn-warning', method: :delete

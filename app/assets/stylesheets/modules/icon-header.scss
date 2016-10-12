@@ -1,0 +1,51 @@
+.icon-header{
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  font-size: 20px;
+  color: #000;
+  padding-left: 40px;
+}
+.icon-header.-pencil{
+  background-image: image_url('icons/pencil.png');
+}
+.icon-header.-mark{
+  background-image: image_url('icons/ic_711.png');
+}
+.icon-header.-black-bell {
+  background-image: image_url('icons/icon-header/ic_black_bell.png');
+}
+.icon-header.-money{
+  background-image: image_url('icons/icon-header/ic_money.png');
+}
+.icon-header.-order{
+  background-image: image_url('icons/icon-header/ic_list.png');
+}
+.icon-header.-people {
+  background-image: image_url('icons/icon-header/people.png');
+}
+.icon-header.-location {
+  background-image: image_url('icons/icon-header/location.png');
+}
+
+@media screen and (max-width: 768px) {
+  .icon-header{
+    font-size: 14px;
+    padding-left: 25px;
+  }
+  .icon-header.-black-bell {
+    background-image: image_url('icons/icon-header/ic_black_bell_mobile.png');
+  }
+  .-money{
+    background-image: image_url('icons/icon-header/ic_money_mobile.png');
+  }
+  .icon-header.-order{
+    background-image: image_url('icons/icon-header/ic_list_mobile.png');
+  }
+  .icon-header.-people {
+    background-image: image_url('icons/icon-header/people_mobile.png');
+  }
+  .icon-header.-location {
+    background-image: image_url('icons/icon-header/location_mobile.png');
+  }
+}

@@ -1,0 +1,56 @@
+.user-panel{
+  height: auto;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #dcdcdc;
+  .profilePic{
+    display: block;
+    width: 76.2px;
+    height: 76.5px;
+    margin: 40px auto 20px auto;
+  }
+  .name, .email{
+    text-align: center;
+    margin: 3px auto;
+  }
+  .name{
+    font-size: 20px;
+    color: #000000;
+  }
+  .email{
+    font-size: 16px;
+    color: #262626;
+  }
+  .login-btn{
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 220px;
+    height: 29px;
+    border-radius: 2px;
+    background-color: #ff8080;
+  }
+  .divider{
+    width: 217px;
+    height: 1px;
+    border-top: solid 1px #979797;
+    margin: 20px auto;
+  }
+  .selectList{
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    > a {
+      color: #9b9b9b;
+    }
+  }
+  .-active{
+    > a{
+      color: #262626;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.satisfaction_survey
+  .mail-img
+    = email_image_tag('mailer/img_questionnaire.png')
+  .text-block
+    %h3
+      親愛的
+      %span.emphasize=@order_info.ship_name
+      ：
+    %p
+      感謝您在萌萌屋購物，同時也恭喜您成為我們滿意度調查的對象。
+      %br
+      透過滿意度的調查，我們希望能帶給更多人愉快的購物經驗。
+      %br
+      請您利用數分鐘的時間，為我們填寫以下連結的問券。
+      %br
+      在您下次購物時, 我們會隨機
+      %span.red-oblique 贈送
+      價值60元的禮品作為謝禮喔 ^^
+      %br
+      萌萌屋感謝您
+    %p
+      = link_to "問卷連結", "https://docs.google.com/a/kosbrother.com/forms/d/e/1FAIpQLScQHDuAywguj1nFWEW8-Jk72L99mHkqNuZgH7nO0kdEyF9chQ/viewform?c=0&w=1", { target: "_blank", class: "green-button"}

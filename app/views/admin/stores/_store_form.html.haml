@@ -1,0 +1,35 @@
+= form_for [:admin, @store], html: { class: "form-horizontal" } do |f|
+  .form-group
+    = f.hidden_field :store_type, value: 4
+  .form-group
+    = f.label :county_id, "選擇縣市", class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.select :county_id, County.seven_stores.pluck(:name, :id), {selected: @store.county_id}, class: "form-control", id: "select-county"
+  .form-group
+    = f.label :town_id, "選擇鄉鎮", class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.select :town_id, Town.where(county_id: @store.county_id).pluck(:name, :id), {selected: @store.town_id}, class: "form-control", id: "town-list"
+  .form-group
+    = label_tag "road_name", "門市路名", class: "col-sm-2 control-label"
+    .col-sm-6
+      = text_field_tag "road_name", nil, class: "form-control", id: "road-list", required: true
+  .form-group
+    = f.label :store_code, "門市店號", class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :store_code, class: "form-control", required: true
+  .form-group
+    = f.label :name, "門市名稱", class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :name, class: "form-control", required: true
+  .form-group
+    = f.label :address, "門市地址", class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :address, class: "form-control", required: true
+  .form-group
+    = f.label :phone, "門市電話", class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :phone, class: "form-control", required: true
+  .form-group
+    .col-sm-offset-2.col-sm-6
+      = f.submit "確認送出", class: "btn btn-primary"
+      = link_to "取消離開", admin_stores_path, class: "btn btn-warning"

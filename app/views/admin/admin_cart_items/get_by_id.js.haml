@@ -1,0 +1,11 @@
+$('#result-hidden-item-id').val('#{ @item.id }');
+$('#result-hidden-supplier-id').val('#{ @item.taobao_supplier_id }');
+$('#result-item-name').html('#{ link_to_item(@item) }');
+$('#result-item-url').html('#{ link_to_item_taobao(@item) }')
+$('#result-spec-style > select > option').remove();
+var spec_list = $('#result-spec-style > select');
+- @specs.each do  |s|
+  :plain
+    spec_list.append($("<option/>", {value: '#{s.id}', text: '#{s.id.to_s + '-' + "#{ j(s.style)}" }'}))
+$('#result-spec-id').data('item-id', '#{ @item.id }');
+$('#result-spec-pic > img').attr({'src': '#{@specs[0].style_pic.url}' });

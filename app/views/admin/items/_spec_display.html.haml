@@ -1,0 +1,45 @@
+.row
+  %table.table.table-bordered.order-table
+    %thead
+      %tr
+        %th 貨架編號
+        %th 樣式編號
+        %th 樣式名稱
+        %th 樣式狀態
+        %th 銷售比例
+        %th 月銷售量
+        %th 建議庫存
+        %th 現貨數
+        %th 需求數
+        %th 運送數
+        - if current_admin.manager?
+          %th 是否補貨
+        %th
+    %tbody
+      - specs.each do |item_spec|
+        %tr
+          %td
+            = item_spec.item_shelf_position
+          %td
+            = item_spec.id
+          %td
+            = raw(item_spec.style)
+          %td{:id => "status-#{item_spec.id}"}
+            = link_to_update_item_spec_status(item_spec)
+          %td
+            = number_to_percentage((item_spec.sales_quantity.to_f / @sales_volume)*100, precision: 0)
+          %td
+            = item_spec.sales_amount_within_days(30)
+          %td
+            = item_spec.recommend_stock_num
+          %td
+            = item_spec.stock_item_quantity
+          %td
+            = item_spec.requested_quantity
+          %td
+            = item_spec.shipping_item_quantity
+          - if current_admin.manager?
+            %td{id: "stop-recommend-spec-id-#{item_spec.id}"}
+              = link_to_stop_recommend(item, item_spec)
+          %td
+            = link_to "編輯" , edit_admin_item_item_spec_path(item, item_spec), class: "btn btn-default btn-sm"

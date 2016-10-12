@@ -1,0 +1,16 @@
+$("#status-#{@item_spec.id}").html('#{link_to_update_item_spec_status(@item_spec)}')
+- if @is_item_off_shelf
+  :plain
+    $(function(){
+      new PNotify({
+        title: '已將此樣式上架',
+        text: '提醒:目前商品是下架狀態'
+      });
+    });
+- else
+  :plain
+    $(function(){
+      new PNotify({
+        title: '已將此樣式上架'
+      });
+    });

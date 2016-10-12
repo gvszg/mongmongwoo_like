@@ -1,0 +1,23 @@
+= render_pagination(users)
+.panel-body
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th 編號
+        %th 臉書ID
+        %th 名稱
+        %th 性別
+        %th 操作選項
+    %tbody
+      - users.each do |user|
+        %tr
+          %td= user.id
+          %td= user.uid
+          %td= user.user_name
+          %td= user.gender
+          %td
+            = link_to "查看使用者", admin_user_path(user), class: "btn btn-default"
+            = link_to "查看個人訊息", admin_user_my_messages_path(user), class: "btn btn-default"
+            - if user.id != User::ANONYMOUS
+              = link_to "查看購物金", admin_user_shopping_points_path(user), class: "btn btn-default"
+= render_pagination(users)

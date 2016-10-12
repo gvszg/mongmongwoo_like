@@ -1,0 +1,11 @@
+%div
+  %h1 請登入
+  %div
+    = form_tag admin_signin_path do
+      = label_tag :username, "帳號"
+      = text_field_tag :username, nil
+      %hr/
+      = label_tag :password, "密碼"
+      = password_field_tag :password, nil
+      %hr/
+      = submit_tag "確認"

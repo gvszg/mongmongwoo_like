@@ -1,0 +1,16 @@
+.row
+  .col-md-10
+    .content-box-large
+      .breadcrumb-topbar
+        %ol.breadcrumb
+          %li
+            = link_to "萌萌屋", admin_root_path
+          %li
+            = link_to "推播訊息列表", admin_notifications_path
+          %li.active
+            新增推播訊息
+      .panel-heading
+        .panel-title
+          新增推播訊息
+      .panel-body
+        = render "notification_form"

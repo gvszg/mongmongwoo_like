@@ -1,0 +1,282 @@
+/*
+ *= require jquery-ui/autocomplete
+ *= require jquery.datetimepicker
+*/
+
+/* === Common CSS == */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "styles";
+@import "pnotify.custom.min";
+@import "pagination";
+@import "jquery-ui/core";
+@import "jquery-ui/sortable";
+@import "jquery-ui/draggable";
+@import "jquery-ui/resizable";
+
+/* === Custom CSS === */
+/*預設字體大小*/
+body {
+  font-size: 1.4em;
+}
+
+.warning{
+  color: red;
+}
+
+/*商品，推播顯示頁*/
+div.item-cover-words-intro, div.notification-intro {
+  min-height: 500px;  
+}
+
+.carousel {
+  width: 450px;
+  height: 300px;
+}
+
+.carousel-inner .item img {
+  margin: 0 auto;
+}
+
+.spec-style-stock span {
+  color: rgb(255, 34, 228);
+}
+
+.photo_section {
+  display: inline-table;;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.label-cell {
+  font-weight: bold;
+}
+
+/*商品排序拖曳按鈕*/
+#photo-sort {
+  img {
+    width: 120px;
+    height: 80px;
+  }
+}
+
+.custom-well {
+  min-height: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 20px;
+}
+
+/*訂單列表*/
+.order-table, .search-order, .search-user{
+  margin-top: 10px;
+}
+.order-table{
+  .user-name{
+    word-wrap: break-word;
+    width: 80px;
+  }
+}
+.item-id-cell, .user-id-cell{
+  > .button{
+    margin: 10px 0;
+  }
+}
+ .edit-order-btn:hover{
+   background-color: #8FCEDD;
+ }
+ .order-status-btn{
+   display: block;
+   margin: 5px auto;
+ } /*商品列表*/
+.category-all-items .panel-body .btn-group{
+  margin-bottom: 15px;
+}
+
+/*庫存列表頁*/
+.inline-display {
+  display: inline-block;
+  list-style: none;
+  padding-left: 10px;
+}
+.checkout{
+  .table{
+    margin-top: 20px;
+  }
+  .file-form {
+    margin: 20px 0 0 30px;
+    .custom-file-input {
+      display: inline-block;
+      width: 190px;
+    }
+  }
+  .search-input{
+    height: 35px;
+  }
+  #item_quantity, .update-cart-item-quantity{
+    width: 45px;
+  }
+  #item_id{
+    width: 80px;
+  }
+  .cart-spec-pic{
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+.form-amount {
+  min-width: 50px;
+  max-width: 70px;
+  font-size: 1em;
+}
+//For table
+.table{
+  > thead > tr {
+    > .xx-small{
+      width: 5%;
+    }
+    > .x-small{
+      width: 10%;
+    }
+    > .mid-small{
+      width: 15%;
+    }
+    > .small{
+      width: 20%;
+      font-size:100%;
+    }
+    > .big-small{
+      width: 25%;
+    }
+    > .large-small{
+      width: 30%;
+    }
+    > .small-mid{
+      width: 40%;
+    }
+    > .large-mid{
+      width: 60%;
+    }
+    > .small-large{
+      width: 70%;
+    }
+    .text-right{
+      text-align: right;
+    }
+  }
+}
+
+.header{
+  .user{
+    color: #fff;
+    margin-top: 18px;
+    > .user-name{
+      display: inline-block;
+    }
+    > .sign-out{
+      color: #fff;
+      font-size: 14px;
+      margin-left: 5px;
+    }
+  }
+  .cart{
+    margin-top: 18px;
+    text-align: right;
+    padding-right: 5px;
+    a{
+      color: #fff;
+      font-size: 14px;
+    }
+  }
+}
+.search-bar{
+  width: 300px;
+}
+.filter-area{
+  margin-top: 20px;
+  border: solid 1px #f1f1f1;
+  .filter-row:first-child{
+    border-top: 0;
+  }
+  .filter-row{
+    position: relative;
+    min-height: 56px;
+    padding-left: 70px;
+    border-top: solid 1px #f1f1f1;
+    > .filter-dt{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 70px;
+      height: 100%;
+      min-height: 54px;
+      line-height: 54px;
+      text-align: center;
+      background-color: #f1f1f1;
+    }
+    > .filter-dd{
+      position: relative;
+      padding-top: 14px;
+      > .filter-list{
+        padding-left: 15px;
+        float: left;
+        line-height: 26px;
+        margin-right: 20px;
+        list-style: none;
+        li{
+          float: left;
+          line-height: 26px;
+          margin-right: 20px;
+          padding: 3px;
+        }
+        .active{
+          background-color: #afb2ae;
+          border-radius: 5px;
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+.header-btn{
+  margin-bottom: 20px;
+}
+.parent_category {
+  font-size: 0.7em;
+}
+#sub-category-field {
+  > label {
+    margin-left: 0;
+    margin-right: 20px;
+  }
+}
+.red-color {
+  color: red;
+}
+.cart-id-pagination {
+  > .apple_pagination {
+    background: none;
+    border: 0;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 1em;
+  }
+}
+.header-title {
+  margin-top: 10px;
+}
+#update-item_initial_on_shelf_date {
+  display: inline-block;
+
+  > label {
+    margin-left: 5px;
+    font-size: 18px;
+    font-weight: 300;
+  }
+}

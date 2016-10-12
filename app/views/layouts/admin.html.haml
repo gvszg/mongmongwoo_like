@@ -1,0 +1,17 @@
+!!!
+%html{:lang => "zh-Hant-TW"}
+  = render 'layouts/partials/admin_header'
+  %body
+    .header
+      = render "partials/admin/navbar"
+    .page-content
+      .row
+        .col-md-2
+          = render "partials/admin/sidebar"
+        .col-md-10
+          = notice_message
+          / Main Content
+          = yield
+    %footer
+      .container
+        .copy.text-center

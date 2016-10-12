@@ -1,0 +1,19 @@
+.content-box-large
+  .pull-right.header-btn
+    = link_to "返回上頁", admin_item_path(@item), class: "btn btn-default btn-sm"
+    = link_to "新增圖片", new_admin_item_photo_path, class: "btn btn-default btn-sm"
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th 圖片
+        %th 圖片敘述
+        %th 操作選項
+    %tbody#photo-sort{"data-photo-sort-url" => photo_sort_admin_item_photos_path(@item)}
+      - @photos.each do |photo|
+        %tr{:id => "photo-#{photo.id}"}
+          %td
+            = item_photo(photo)
+          %td= raw photo.photo_intro
+          %td
+            = link_to "編輯", edit_admin_item_photo_path(@item, photo), class: "btn btn-default btn-xs"
+            = link_to "刪除", admin_item_photo_path(@item, photo), method: :delete, data: { confirm: "確定刪除?", disable_with: "刪除中..." }, class: "btn btn-default btn-xs"

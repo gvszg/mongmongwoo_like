@@ -1,0 +1,9 @@
+!!!
+%html{:lang => "zh-Hant-TW"}
+  = render 'layouts/partials/admin_header'
+  %body
+    .row
+      .col-md-12
+        = notice_message
+      .col-md-6.col-md-offset-4
+        = yield

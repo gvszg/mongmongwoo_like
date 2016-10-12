@@ -1,0 +1,75 @@
+zh-TW:
+  on_shelf: "上架中"
+  off_shelf: "已下架"
+  shipping: "運送中"
+  stock: "已入庫存"
+  will_paginate:
+    page_gap: "......"
+  notify_item: "推播商品"
+  bannerable:
+    Category: "分類"
+    Item: "商品"
+    NoLink: "無連結"
+  controller:
+    error:
+      message:
+        no_user: "抱歉，找不到此用戶"
+        wrong_password: "密碼錯誤"
+        can_not_cancel_order: "抱歉，這筆訂單已寄出，無法變更！"
+        no_regitration_id: "裝置ID沒有上傳，無法註冊或登入，請稍後一陣子再試一次！"
+    success:
+      message:
+        cancel_order: "已成功取消訂單！"
+  factory:
+    item:
+      name: '可愛電力公司手機擦'
+      description: '老是覺得螢幕都是髒髒的指紋很礙眼嗎？日韓正夯的螢幕擦～～送人禮物首選！'
+    term:
+      name: '可愛'
+      description: '日韓'
+  models:
+    item:
+      sort_params:
+        price_desc: '價格由高到低'
+        price_asc: '價格由低到高'
+        popular: '人氣排行'
+        date: '最新商品'
+    shopping_points:
+      collect: '已領取'
+      un-collect: '未領取'
+      processing: '進行中'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "信箱不可為空白"
+              invalid: "信箱格式錯誤，請重新輸入"
+              taken: "此信箱已被註冊，請重新輸入"
+            password:
+              blank: "密碼不可為空白"
+        login:
+          attributes:
+            uid:
+              blank: "UID不可為空白"
+            provider:
+              blank: "第三方登入資訊不可為空白"
+        order_info:
+          attributes:
+            ship_email:
+              blank: "信箱不可為空白"
+            ship_phone:
+              blank: "取件人手機電話不可為空白"
+            ship_name:
+              blank: "取件人姓名不可為空白"
+            ship_address:
+              blank: "收件地址不可空白"
+        order:
+          attributes:
+            total:
+              greater_than: "訂單總金額不得為0"
+            items_price:
+              greater_than: "商品總金額不得為0"
+            ship_type:
+              blank: "配送方式不可空白"

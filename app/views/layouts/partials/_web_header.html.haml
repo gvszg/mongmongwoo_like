@@ -1,0 +1,38 @@
+%head{ prefix: "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#" }
+  %meta{ content: "339rweaYc4ObAnKsp1wsHMG-5w79ikk-7k6a3wzuNrA", name: "google-site-verification" }/
+  %meta{ content: "text/html; charset=UTF-8", "http-equiv": "Content-Type" }/
+  %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport" }/
+  %meta{ property: "fb:app_id", content: "1101896056521102" }/
+  = display_meta_tags site: '萌萌屋 | 校園生活補給站', reverse: true
+  %meta{ property: "og:site_name", content: "萌萌屋|校園生活補給站" }/
+  %meta{ property: "og:locale", content: "zh_TW" }/
+  = stylesheet_link_tag    'application', media: 'all'
+  = javascript_include_tag 'application'
+  = csrf_meta_tags
+  = yield :head
+  - if Rails.env == "production"
+    :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-78498647-1', 'auto');
+      ga('require', 'linkid');
+      ga('send', 'pageview');
+      ga('require', 'ec')
+      ga('set', '&cu', 'TWD');
+    / Facebook Pixel Code
+    :javascript
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      
+      fbq('init', '459078550968681');
+      fbq('track', "PageView");
+    %noscript
+      %img{:height => "1", :src => "https://www.facebook.com/tr?id=459078550968681&ev=PageView&noscript=1", :style => "display:none", :width => "1"}/
+    / End Facebook Pixel Code
+

@@ -1,0 +1,21 @@
+%table.table.table-bordered
+  %thead
+    %tr.active
+      %th.large-small 樣式名稱
+      %th.x-small 樣式狀態
+      %th.x-small 現貨數量
+      %th.x-small 運送中數量
+      %th.x-small 建議庫存量
+  %tbody
+    - specs.each do |spec|
+      %tr
+        %td
+          = link_to spec.style, "#", rel: "popover", data: { "image-url": "#{spec.style_pic_url}", "placement": "left" }, class: "btn btn-default preview"
+        %td
+          = t(spec.status)
+        %td
+          = spec.stock_item_quantity
+        %td
+          = spec.shipping_item_quantity
+        %td
+          = spec.recommend_stock_num

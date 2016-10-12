@@ -1,0 +1,8 @@
+.content-box-large
+  .info-title
+    .pull-right
+      = link_to "運送中商品清單EXCEL", export_shipping_list_admin_confirm_carts_path(format: 'xlsx'), class: 'btn btn-default'
+    %h2 確認收貨單列表
+    = render "filter_area"
+  %p.help-block
+  = render "cart_table", carts: @carts
