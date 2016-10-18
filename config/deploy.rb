@@ -1,9 +1,9 @@
-set :application, 'monmonhouse'
+set :application, 'monmonhouse_like'
 set :deploy_user, 'deploy'
 
 # setup repo details
 set :scm, :git
-set :repo_url, 'git@github.com:kosbrother/mongmongwoo.git'
+set :repo_url, 'project/path'
 
 # setup rbenv.
 set :rbenv_type, :system

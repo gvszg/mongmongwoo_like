@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: '104.199.129.36' }
+  config.action_mailer.default_url_options = { host: 'staging.example.com' }
 
   config.action_mailer.delivery_method = :smtp
 
@@ -86,7 +86,7 @@ Rails.application.configure do
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'mmwoo.com',
+    :domain         => 'staging.example.com',
     :authentication => :plain
   }
 
